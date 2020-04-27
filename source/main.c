@@ -8,6 +8,7 @@
  *	code, is my own original work.
  */
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #ifdef _SIMULATE_
 #include "simAVRHeader.h"
 #endif
@@ -94,7 +95,7 @@ int main(void) {
     /* Insert DDR and PORT initializations */
     DDRB = 0xFF; PORTB = 0x00;
     /* Insert your solution below */
-    TimerSet(1000); // 1000 ms = 1 s
+    TimerSet(100); // 1000 ms = 1 s
     TimerOn();
     state = Start;
     while (1) {

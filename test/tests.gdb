@@ -28,19 +28,15 @@ echo Running all tests..."\n\n
 
 test "TimerFlag => PORTB: 1"
 continue 1
-set TimerFlag = 1
-continue 1
 expectPORTB 1
 checkResult
 
 test "TimerFlag => PORTB: 2"
-set TimerFlag = 1
 continue 1
 expectPORTB 2
 checkResult
 
 test "TimerFlag => PORTB: 4"
-set TimerFlag = 1
 continue 1
 expectPORTB 4
 checkResult
