@@ -54,6 +54,7 @@ enum States {
     One,
     Two,
     Three,
+    Two_2,
     Stop,
     WaitButton,
     WaitButton2,
@@ -68,7 +69,7 @@ void Tick() {
             break;
         case One:
             if ((~PINA)&0x01) state = Stop;
-            else if (count < 30) count++;
+            else if (count < 3) count++;
             else {
                 state = Two;
                 count = 0;
@@ -76,7 +77,7 @@ void Tick() {
             break;
         case Two:
             if ((~PINA)&0x01) state = Stop;
-            else if (count < 30) count++;
+            else if (count < 3) count++;
             else {
                 state = Three;
                 count = 0;
@@ -84,7 +85,15 @@ void Tick() {
             break;
         case Three:
             if ((~PINA)&0x01) state = Stop;
-            else if (count < 30) count++;
+            else if (count < 3) count++;
+            else {
+                state = Two_2;
+                count = 0;
+            }
+            break;
+        case Two_2:
+            if ((~PINA)&0x01) state = Stop;
+            else if (count < 3) count++;
             else {
                 state = One;
                 count = 0;
@@ -116,6 +125,9 @@ void Tick() {
         case Three:
             PORTB = 4;
             break;
+        case Two_2:
+            PORTB = 2;
+            break;
         default:
             break;
     }
@@ -126,7 +138,7 @@ int main(void) {
     DDRA = 0x00; PORTA = 0xFF;
     DDRB = 0xFF; PORTB = 0x00;
     /* Insert your solution below */
-    TimerSet(1);
+    TimerSet(10);
     TimerOn();
     state = Start;
     while (1) {
