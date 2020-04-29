@@ -28,40 +28,35 @@ echo Running all tests..."\n\n
 
 test "Wait => PORTB: 1"
 setPINA 0xFF
-continue 2
+continue 1
 expectPORTB 1
 checkResult
 
 test "Wait => PORTB: 2"
-continue 31
+continue 3
 expectPORTB 2
 checkResult
 
 test "Wait => PORTB: 4"
-continue 31
+continue 3
 expectPORTB 4
 checkResult
 
-test "Wait => PORTB: 1"
-continue 31
-expectPORTB 1
-checkResult
-
 test "Wait => PORTB: 2"
-continue 31
+continue 3
 expectPORTB 2
 checkResult
 
 test "PINA0: 0 => PORTB: 2, state: Stop"
 setPINA 0xFE
-continue 31
+continue 3
 expectPORTB 2
 expect state Stop
 checkResult
 
 test "PINA0: 1 => PORTB: 2, state: WaitButton"
 setPINA 0xFF
-continue 31
+continue 3
 expectPORTB 2
 expect state WaitButton
 checkResult
@@ -70,13 +65,13 @@ test "PINA0: 0 => PORTB: 1"
 setPINA 0xFE
 continue 1
 setPINA 0xFF
-continue 2
+continue 1
 expectPORTB 1
 checkResult
 
 test "Wait => PORTB: 2"
 continue 31
-expectPORTB 2
+expectPORTB 1
 checkResult
 
 # Report on how many tests passed/tests ran
