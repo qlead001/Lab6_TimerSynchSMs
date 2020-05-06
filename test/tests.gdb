@@ -30,7 +30,7 @@ test "PINA: 0xFF => PORTB: 7, state: Press"
 set state = Release
 set count = 0x07
 setPINA 0xFF
-continue 1
+timeContinue 1
 expectPORTB 7
 expect state Press
 checkResult
@@ -39,7 +39,7 @@ test "PINA: 0xFE => PORTB: 8, state: Release"
 set state = Press
 set count = 0x07
 setPINA 0xFE
-continue 1
+timeContinue 1
 expectPORTB 8
 expect state Release
 checkResult
@@ -48,7 +48,7 @@ test "PINA: 0xFD => PORTB: 6, state: Release"
 set state = Press
 set count = 0x07
 setPINA 0xFD
-continue 1
+timeContinue 1
 expectPORTB 6
 expect state Release
 checkResult
@@ -57,7 +57,7 @@ test "PINA: 0xFC => PORTB: 6, state: Release"
 set state = Press
 set count = 0x07
 setPINA 0xFC
-continue 1
+timeContinue 1
 expectPORTB 0
 expect state Release
 checkResult
@@ -66,15 +66,15 @@ test "PINA: 0xFE, 0xFF, 0xFE, 0xFF, 0xFE => PORTB: 9, state: Release"
 set state = Release
 set count = 0x07
 setPINA 0xFE
-continue 1
+timeContinue 1
 setPINA 0xFF
-continue 1
+timeContinue 1
 setPINA 0xFE
-continue 1
+timeContinue 1
 setPINA 0xFF
-continue 1
+timeContinue 1
 setPINA 0xFE
-continue 1
+timeContinue 1
 expectPORTB 9
 expect state Release
 checkResult
@@ -83,15 +83,15 @@ test "PINA: 0xFD, 0xFF, 0xFD, 0xFF, 0xFD, count: 2 => PORTB: 0, state: Release"
 set state = Release
 set count = 0x02
 setPINA 0xFD
-continue 1
+timeContinue 1
 setPINA 0xFF
-continue 1
+timeContinue 1
 setPINA 0xFD
-continue 1
+timeContinue 1
 setPINA 0xFF
-continue 1
+timeContinue 1
 setPINA 0xFD
-continue 1
+timeContinue 1
 expectPORTB 0
 expect state Release
 checkResult
@@ -100,7 +100,7 @@ test "PINA: 0xFE => PORTB: 9, state: Release"
 set state = Press
 set count = 0x07
 setPINA 0xFE
-continue 40
+timeContinue 40
 expectPORTB 9
 expect state Release
 checkResult
@@ -109,7 +109,7 @@ test "PINA: 0xFD => PORTB: 3, state: Release"
 set state = Press
 set count = 0x07
 setPINA 0xFD
-continue 40
+timeContinue 40
 expectPORTB 3
 expect state Release
 checkResult

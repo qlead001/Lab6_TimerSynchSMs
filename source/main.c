@@ -102,7 +102,7 @@ int main(void) {
     DDRA = 0x00; PORTA = 0xFF;
     DDRB = 0xFF; PORTB = 0x00;
     /* Insert your solution below */
-    TimerSet(10);
+    TimerSet(100);
     TimerOn();
     state = Start;
     while (1) {
